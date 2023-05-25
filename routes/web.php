@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WarungController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +31,6 @@ Route::middleware('guest')->group(function () {
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::view('/home', 'home')->middleware('auth');
+
+Route::resource('/warungs', WarungController::class)->except('index');
+Route::resource('/menus', MenuController::class)->except('index');

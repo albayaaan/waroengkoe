@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function warung()
+    {
+        return $this->hasOne(Warung::class, 'seller_id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
